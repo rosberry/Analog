@@ -14,6 +14,8 @@
 		066238161F879B4D00AA6B14 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 066238181F879B4D00AA6B14 /* Localizable.strings */; };
 		06DAD03A1F4E95B700FD62BD /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06DAD0391F4E95B700FD62BD /* Settings.bundle */; };
 		06E0EBD11FAC0BB4002715AE /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E0EBD01FAC0BB4002715AE /* AppConfigurator.swift */; };
+		629A6D7A964AF95F957EC1F5 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629A656EC463F8B862D669EF /* SessionViewController.swift */; };
+		629A6DAA68D602C3460FB4ED /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629A64479FC207BE6EE5F768 /* EventCollectionViewCell.swift */; };
 		FED6CEBC2189AF09007716CD /* Analog.h in Headers */ = {isa = PBXBuildFile; fileRef = FED6CEBA2189AF09007716CD /* Analog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FED6CECB2189AF85007716CD /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629A67BAA82B57AAD8ABDFDB /* Logger.swift */; };
 		FED6CECC2189AF85007716CD /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629A632E54D7DDB4E556A462 /* Event.swift */; };
@@ -34,6 +36,8 @@
 		06E0EBD21FAC0D4B002715AE /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		06E0EBD41FAC0D97002715AE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		629A632E54D7DDB4E556A462 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		629A64479FC207BE6EE5F768 /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
+		629A656EC463F8B862D669EF /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 		629A67BAA82B57AAD8ABDFDB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		629A6963785E01EB2569E69E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		FED6CEB82189AF07007716CD /* Analog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Analog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +165,22 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		629A6015E9B63E601FB6DBB4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				629A64479FC207BE6EE5F768 /* EventCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		629A649BA84997D177ADF279 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				629A686D7CDAE058A0E45176 /* Modules */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		629A66A40348B0FD29A5F833 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,10 +191,28 @@
 			path = Logger;
 			sourceTree = "<group>";
 		};
+		629A686D7CDAE058A0E45176 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				629A6CDEC3F8736BB28573D6 /* Session */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		629A6CDEC3F8736BB28573D6 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				629A656EC463F8B862D669EF /* SessionViewController.swift */,
+				629A6015E9B63E601FB6DBB4 /* Views */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
 		629A6E54294EB75ABD27F429 /* Analog */ = {
 			isa = PBXGroup;
 			children = (
 				629A66A40348B0FD29A5F833 /* Logger */,
+				629A649BA84997D177ADF279 /* Presentation */,
 			);
 			path = Analog;
 			sourceTree = "<group>";
@@ -359,6 +397,8 @@
 				FED6CECC2189AF85007716CD /* Event.swift in Sources */,
 				FED6CECB2189AF85007716CD /* Logger.swift in Sources */,
 				FED6CECD2189AF85007716CD /* Session.swift in Sources */,
+				629A6D7A964AF95F957EC1F5 /* SessionViewController.swift in Sources */,
+				629A6DAA68D602C3460FB4ED /* EventCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

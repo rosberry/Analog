@@ -15,3 +15,11 @@ public final class Event: Codable {
         self.date = .init()
     }
 }
+
+// MARK: CustomStringConvertible
+
+extension Event: CustomStringConvertible {
+    public var description: String {
+        return ""
+    }
+}
