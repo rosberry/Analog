@@ -14,15 +14,22 @@ public final class Logger {
         return Logger.sharedSession
     }
     
-    init() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(appWillResignActive),
-                                               name: UIApplication.willResignActiveNotification,
-                                               object: nil)
+    private static let notificationsSubscriber: NotificationsSubscriber = {
+        return NotificationsSubscriber(notification: UIApplication.willResignActiveNotification) {
+            Logger.saveCurrentSession()
+        }
+    }()
+    
+    public init() {
+    
     }
     
     public func log(_ event: Event) {
         currentSession.events.append(event)
+    }
+    
+    public func currentEventsModule() -> UIViewController {
+        return SessionViewController(session: currentSession)
     }
     
     // MARK: - Private
@@ -30,7 +37,7 @@ public final class Logger {
     private func restoredSessions() -> [Session] {
         var sessions: [Session] = []
         do {
-            let sessionsFolderURL = try self.sessionsFolderURL()
+            let sessionsFolderURL = try Logger.sessionsFolderURL()
             let rawSessions = try FileManager.default.contentsOfDirectory(atPath: sessionsFolderURL.path)
             sessions = rawSessions.compactMap { fileName in
                 let fileURL = sessionsFolderURL.appendingPathComponent(fileName)
@@ -46,11 +53,11 @@ public final class Logger {
         return sessions
     }
     
-    private func saveCurrentSession() {
+    private static func saveCurrentSession() {
         do {
-            let data = try JSONEncoder().encode(currentSession)
+            let data = try JSONEncoder().encode(sharedSession)
             
-            let sessionFileURL = try sessionsFolderURL().appendingPathComponent("\(currentSession.uuid.uuidString)")
+            let sessionFileURL = try sessionsFolderURL().appendingPathComponent("\(sharedSession.uuid.uuidString)")
             if FileManager.default.fileExists(atPath: sessionFileURL.path) {
                 try FileManager.default.removeItem(atPath: sessionFileURL.path)
             }
@@ -63,15 +70,29 @@ public final class Logger {
     
     // MARK: - Paths
     
-    private func sessionsFolderURL() throws -> URL {
+    private static func sessionsFolderURL() throws -> URL {
         let documentsURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         let folderURL = documentsURL.appendingPathComponent("Analog/Sessions")
         return folderURL
     }
+}
+
+// MARK: - NotificationsSubscriber
+
+private final class NotificationsSubscriber {
     
-    // MARK: - Notifications
+    private let notificationHandler: (() -> Void)
     
-    @objc private func appWillResignActive() {
-        saveCurrentSession()
+    init(notification: Notification.Name, handler: @escaping (() -> Void)) {
+        self.notificationHandler = handler
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationFired), name: notification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc private func notificationFired() {
+        notificationHandler()
     }
 }

@@ -35,6 +35,8 @@ public final class SessionViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(EventCollectionViewCell.self,
@@ -53,8 +55,6 @@ public final class SessionViewController: UIViewController {
 // MARK: UICollectionViewDelegate
 
 extension SessionViewController: UICollectionViewDelegate {
-    
-    
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
     }
