@@ -14,6 +14,7 @@
 		066238161F879B4D00AA6B14 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 066238181F879B4D00AA6B14 /* Localizable.strings */; };
 		06DAD03A1F4E95B700FD62BD /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06DAD0391F4E95B700FD62BD /* Settings.bundle */; };
 		06E0EBD11FAC0BB4002715AE /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E0EBD01FAC0BB4002715AE /* AppConfigurator.swift */; };
+		629A6BBF874D56CCA1E544C9 /* AttributedStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629A6CDF705368EF0D50250D /* AttributedStringConvertible.swift */; };
 		629A6D7A964AF95F957EC1F5 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629A656EC463F8B862D669EF /* SessionViewController.swift */; };
 		629A6DAA68D602C3460FB4ED /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629A64479FC207BE6EE5F768 /* EventCollectionViewCell.swift */; };
 		FED6CEBC2189AF09007716CD /* Analog.h in Headers */ = {isa = PBXBuildFile; fileRef = FED6CEBA2189AF09007716CD /* Analog.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -40,6 +41,7 @@
 		629A656EC463F8B862D669EF /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 		629A67BAA82B57AAD8ABDFDB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		629A6963785E01EB2569E69E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		629A6CDF705368EF0D50250D /* AttributedStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedStringConvertible.swift; sourceTree = "<group>"; };
 		FED6CEB82189AF07007716CD /* Analog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Analog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FED6CEBA2189AF09007716CD /* Analog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Analog.h; sourceTree = "<group>"; };
 		FED6CEBB2189AF09007716CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				629A67BAA82B57AAD8ABDFDB /* Logger.swift */,
 				629A632E54D7DDB4E556A462 /* Event.swift */,
 				629A6963785E01EB2569E69E /* Session.swift */,
+				629A6CDF705368EF0D50250D /* AttributedStringConvertible.swift */,
 			);
 			path = Logger;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				FED6CECD2189AF85007716CD /* Session.swift in Sources */,
 				629A6D7A964AF95F957EC1F5 /* SessionViewController.swift in Sources */,
 				629A6DAA68D602C3460FB4ED /* EventCollectionViewCell.swift in Sources */,
+				629A6BBF874D56CCA1E544C9 /* AttributedStringConvertible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

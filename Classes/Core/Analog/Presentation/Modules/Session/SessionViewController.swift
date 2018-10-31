@@ -71,7 +71,7 @@ extension SessionViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.eventCollectionViewCellReuseIdentifier, for: indexPath)
         if let cell = cell as? EventCollectionViewCell {
             let event = session.events[indexPath.row]
-            cell.titleLabel.text = event.description
+            cell.titleLabel.attributedText = event.description
         }
         return cell
     }

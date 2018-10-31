@@ -18,8 +18,42 @@ public final class Event: Codable {
 
 // MARK: CustomStringConvertible
 
-extension Event: CustomStringConvertible {
-    public var description: String {
-        return ""
+extension Event: AttributedStringConvertible {
+    
+    public var description: NSAttributedString {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        
+        let parametersDescriptions = parameters.map { key, value in
+            return "\(key): \(value)"
+        }
+        
+        let fontSize: CGFloat = 14
+        
+        let dateString = NSAttributedString(string: "✏️ [\(formatter.string(from: date))]",
+                                            attributes: [.font: UIFont.systemFont(ofSize: fontSize)])
+        let finalString = NSMutableAttributedString(attributedString: dateString)
+        finalString.append(lineBreakString(fontSize: fontSize))
+        let titleString = NSAttributedString(string: "\(title)",
+                                             attributes: [.font: UIFont.boldSystemFont(ofSize: fontSize)])
+        finalString.append(lineBreakString(fontSize: fontSize))
+        finalString.append(titleString)
+        
+        if parametersDescriptions.count > 0 {
+            let parametersString = NSAttributedString(string: parametersDescriptions.joined(separator: "\n"),
+                                                      attributes: [.font: UIFont.systemFont(ofSize: fontSize)])
+            finalString.append(lineBreakString(fontSize: fontSize))
+            finalString.append(parametersString)
+        }
+        
+        finalString.append(dateString)
+        
+        return finalString
+    }
+    
+    // MARK: - Private
+    
+    private func lineBreakString(fontSize: CGFloat) -> NSAttributedString {
+        return NSAttributedString(string: "\n", attributes: [.font: UIFont.systemFont(ofSize: fontSize)])
     }
 }
