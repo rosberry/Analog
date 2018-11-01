@@ -4,7 +4,7 @@
 
 import UIKit
 
-public final class SessionViewController: UIViewController {
+final class SessionViewController: UIViewController {
     
     private enum Constants {
         static let eventCollectionViewCellReuseIdentifier: String = "EventCell"

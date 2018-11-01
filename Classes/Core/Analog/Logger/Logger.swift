@@ -15,7 +15,13 @@ public final class Logger {
     }
     
     private static let notificationsSubscriber: NotificationsSubscriber = {
-        return NotificationsSubscriber(notification: UIApplication.willResignActiveNotification) {
+        var notificationName: Notification.Name
+        #if swift(>=4.2)
+            notificationName = UIApplication.willResignActiveNotification
+        #else
+            notificationName = Notification.Name.UIApplicationWillResignActive
+        #endif
+        return NotificationsSubscriber(notification: notificationName) {
             Logger.saveCurrentSession()
         }
     }()

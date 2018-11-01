@@ -24,7 +24,7 @@ final class SessionsViewController: UIViewController {
     
     // MARK: Life cycle
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
