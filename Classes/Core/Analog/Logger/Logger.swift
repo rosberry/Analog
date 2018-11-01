@@ -25,7 +25,7 @@ public final class Logger {
     }
     
     public func log(_ event: Event) {
-        currentSession.events.append(event)
+        currentSession.events.insert(event, at: 0)
     }
     
     public func currentEventsModule() -> UIViewController {
