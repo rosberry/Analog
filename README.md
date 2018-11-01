@@ -1,25 +1,9 @@
 # Analog
 
-## How to build
-1. Install [Carthage](https://github.com/Carthage/Carthage):
+## About
 
-	```bash
-	brew install carthage
-	```
-2. Run a command in a project directory:
+<img src="https://github.com/rosberry/Foundation/blob/master/Assets/full_logo.png?raw=true" height="100" />
 
-	```bash
-	carthage bootstrap --platform iOS
-	```
-3. Open `Analog.xcodeproj` in last Xcode version.
-4. Press `Cmd+R` or select `Product > Run` in menu.
+This project is owned and maintained by [Rosberry](http://rosberry.com). We build mobile apps for users worldwide 🌏.
 
-## Analyzing
-
-1. Install [Swiftlint](https://github.com/realm/swiftlint):
-
-	```bash
-	brew install swiftlint
-	```
-	
-2. Press `⌘+Shift+B` or select `Product > Analyze` in menu.
+Check out our [open source projects](https://github.com/rosberry), read [our blog](https://medium.com/@Rosberry) or give us a high-five on 🐦 [@rosberryapps](http://twitter.com/RosberryApps).
