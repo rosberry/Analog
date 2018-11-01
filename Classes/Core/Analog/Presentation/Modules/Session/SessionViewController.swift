@@ -37,9 +37,10 @@ public final class SessionViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        
+    
+        let shareItem = UIBarButtonItem(title: "Share", style: .plain, target: self, action: #selector(shareButtonPressed))
         let closeItem = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(closeButtonPressed))
-        navigationItem.rightBarButtonItem = closeItem
+        navigationItem.rightBarButtonItems = [closeItem, shareItem]
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -58,6 +59,15 @@ public final class SessionViewController: UIViewController {
     
     @objc private func closeButtonPressed() {
         dismiss(animated: true)
+    }
+    
+    @objc private func shareButtonPressed() {
+        let descriptions = session.events.map { event in
+            return event.description.string
+        }
+        let text = descriptions.joined(separator: "\n\n")
+        let shareViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+        present(shareViewController, animated: true)
     }
     
     // MARK: - Private
