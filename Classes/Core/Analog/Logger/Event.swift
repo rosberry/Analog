@@ -21,30 +21,30 @@ public final class Event: Codable {
 extension Event: AttributedStringConvertible {
     
     public var description: NSAttributedString {
+        let fontSize: CGFloat = 14
+        
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         formatter.timeStyle = .long
-        
-        let parametersDescriptions = parameters?.map { key, value in
-            return "\(key): \(value)"
-        }
-        
-        let fontSize: CGFloat = 14
         
         let dateString = NSAttributedString(string: "✏️ [\(formatter.string(from: date))]",
                                             attributes: [.font: UIFont.systemFont(ofSize: fontSize)])
         let finalString = NSMutableAttributedString(attributedString: dateString)
         let titleString = NSAttributedString(string: "\(title)",
-                                             attributes: [.font: UIFont.boldSystemFont(ofSize: fontSize)])
+                                             attributes: [.font: UIFont.boldSystemFont(ofSize: fontSize + 2)])
         finalString.append(lineBreakString(fontSize: fontSize))
         finalString.append(titleString)
         
-        if let parametersDescriptions = parametersDescriptions,
-           parametersDescriptions.count > 0 {
-            let parametersString = NSAttributedString(string: parametersDescriptions.joined(separator: "\n"),
-                                                      attributes: [.font: UIFont.systemFont(ofSize: fontSize)])
+        if let parameters = parameters,
+           parameters.count > 0 {
             finalString.append(lineBreakString(fontSize: fontSize))
-            finalString.append(parametersString)
+            parameters.forEach { key, value in
+                finalString.append(.init(string: "\(key)",
+                                         attributes: [.font: UIFont.boldSystemFont(ofSize: fontSize)]))
+                finalString.append(.init(string: ": \(value)",
+                                         attributes: [.font: UIFont.systemFont(ofSize: fontSize)]))
+                finalString.append(lineBreakString(fontSize: fontSize))
+            }
         }
         
         return finalString
