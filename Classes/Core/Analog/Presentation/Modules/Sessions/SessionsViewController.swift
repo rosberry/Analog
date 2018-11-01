@@ -72,7 +72,8 @@ final class SessionsViewController: UIViewController {
 
 extension SessionsViewController: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
+        let sessionViewController = SessionViewController(session: sessions[indexPath.row])
+        navigationController?.show(sessionViewController, sender: nil)
     }
 }
 
