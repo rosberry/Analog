@@ -81,9 +81,7 @@ public final class SessionViewController: UIViewController {
 // MARK: UICollectionViewDelegate
 
 extension SessionViewController: UICollectionViewDelegate {
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
-    }
+
 }
 
 // MARK: UICollectionViewDataSource
