@@ -42,7 +42,7 @@ final class EventCollectionViewCell: UICollectionViewCell {
     override func sizeThatFits(_ size: CGSize) -> CGSize {
         let labelSize = titleLabel.sizeThatFits(.init(width: UIScreen.main.bounds.width - 2 * Constants.leftInset,
                                                       height: .greatestFiniteMagnitude))
-        return .init(width: labelSize.width + 2 * Constants.leftInset,
+        return .init(width: max(labelSize.width + 2 * Constants.leftInset, UIScreen.main.bounds.width),
                      height: labelSize.height + 2 * Constants.topInset)
     }
 }

@@ -18,6 +18,7 @@ public final class SessionViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.backgroundColor = .clear
+        view.alwaysBounceVertical = true
         return view
     }()
     
@@ -50,6 +51,11 @@ public final class SessionViewController: UIViewController {
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
     }
+    
+    private func configure(_ cell: EventCollectionViewCell, atIndex index: Int) {
+        let event = session.events[index]
+        cell.titleLabel.attributedText = event.description
+    }
 }
 
 // MARK: UICollectionViewDelegate
@@ -70,8 +76,7 @@ extension SessionViewController: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.eventCollectionViewCellReuseIdentifier, for: indexPath)
         if let cell = cell as? EventCollectionViewCell {
-            let event = session.events[indexPath.row]
-            cell.titleLabel.attributedText = event.description
+            configure(cell, atIndex: indexPath.row)
         }
         return cell
     }
@@ -84,6 +89,8 @@ extension SessionViewController: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView,
                                layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return type(of: self).sizeCell.sizeThatFits(.zero)
+        let cell = type(of: self).sizeCell
+        configure(cell, atIndex: indexPath.row)
+        return cell.sizeThatFits(.zero)
     }
 }
