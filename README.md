@@ -4,7 +4,7 @@ Analog is a simple logger for any events you want. It gives you a simple session
 
 ## Requirements
 * iOS 10+
-* Swift 4.2
+* Swift 4.1+
 
 ## Instalation
 ### Carthage
