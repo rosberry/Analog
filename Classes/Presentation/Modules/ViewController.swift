@@ -25,10 +25,17 @@ final class ViewController: UIViewController {
         return button
     }()
     
-    private lazy var showLogsButton: UIButton = {
+    private lazy var showCurrentSessionLogButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Show logs", for: .normal)
-        button.addTarget(self, action: #selector(showLogsButtonPressed), for: .touchUpInside)
+        button.setTitle("Show current session logs", for: .normal)
+        button.addTarget(self, action: #selector(showCurrentSessionLogButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var showSessionsButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Show all sessions", for: .normal)
+        button.addTarget(self, action: #selector(showSessionsButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -40,7 +47,8 @@ final class ViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(simpleEventButton)
         view.addSubview(parameterizedEventButton)
-        view.addSubview(showLogsButton)
+        view.addSubview(showCurrentSessionLogButton)
+        view.addSubview(showSessionsButton)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,9 +65,12 @@ final class ViewController: UIViewController {
         
         parameterizedEventButton.sizeToFit()
         parameterizedEventButton.frame.origin = .init(x: inset, y: simpleEventButton.frame.maxY + inset)
-    
-        showLogsButton.sizeToFit()
-        showLogsButton.frame.origin = .init(x: inset, y: parameterizedEventButton.frame.maxY + inset)
+        
+        showCurrentSessionLogButton.sizeToFit()
+        showCurrentSessionLogButton.frame.origin = .init(x: inset, y: parameterizedEventButton.frame.maxY + inset)
+        
+        showSessionsButton.sizeToFit()
+        showSessionsButton.frame.origin = .init(x: inset, y: showCurrentSessionLogButton.frame.maxY + inset)
     }
     
     // MARK: - Actions
@@ -76,7 +87,11 @@ final class ViewController: UIViewController {
                                                                     "Notes": longDescription]))
     }
     
-    @objc private func showLogsButtonPressed() {
+    @objc private func showCurrentSessionLogButtonPressed() {
         present(logger.currentEventsModule(), animated: true)
+    }
+    
+    @objc private func showSessionsButtonPressed() {
+        present(logger.sessionsModule(), animated: true)
     }
 }

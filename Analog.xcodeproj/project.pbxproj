@@ -14,6 +14,9 @@
 		066238161F879B4D00AA6B14 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 066238181F879B4D00AA6B14 /* Localizable.strings */; };
 		06DAD03A1F4E95B700FD62BD /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06DAD0391F4E95B700FD62BD /* Settings.bundle */; };
 		06E0EBD11FAC0BB4002715AE /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E0EBD01FAC0BB4002715AE /* AppConfigurator.swift */; };
+		629A6255DFCC6972278FED91 /* SessionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629A654AE79B9D6CF3C6FF0C /* SessionCollectionViewCell.swift */; };
+		629A681801684A85AC5E1312 /* NSAttributedString+LineBreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629A65951C510715E3F1A9A6 /* NSAttributedString+LineBreak.swift */; };
+		629A6AD4225F34AA20A85430 /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629A615B640D19229DAA81D2 /* SessionsViewController.swift */; };
 		629A6BBF874D56CCA1E544C9 /* AttributedStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629A6CDF705368EF0D50250D /* AttributedStringConvertible.swift */; };
 		629A6D7A964AF95F957EC1F5 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629A656EC463F8B862D669EF /* SessionViewController.swift */; };
 		629A6DAA68D602C3460FB4ED /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629A64479FC207BE6EE5F768 /* EventCollectionViewCell.swift */; };
@@ -36,9 +39,12 @@
 		06E0EBD01FAC0BB4002715AE /* AppConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurator.swift; sourceTree = "<group>"; };
 		06E0EBD21FAC0D4B002715AE /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		06E0EBD41FAC0D97002715AE /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		629A615B640D19229DAA81D2 /* SessionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
 		629A632E54D7DDB4E556A462 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		629A64479FC207BE6EE5F768 /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
+		629A654AE79B9D6CF3C6FF0C /* SessionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionCollectionViewCell.swift; sourceTree = "<group>"; };
 		629A656EC463F8B862D669EF /* SessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
+		629A65951C510715E3F1A9A6 /* NSAttributedString+LineBreak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+LineBreak.swift"; sourceTree = "<group>"; };
 		629A67BAA82B57AAD8ABDFDB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		629A6963785E01EB2569E69E /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		629A6CDF705368EF0D50250D /* AttributedStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedStringConvertible.swift; sourceTree = "<group>"; };
@@ -175,6 +181,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		629A63816538C29E4419E467 /* Sessions */ = {
+			isa = PBXGroup;
+			children = (
+				629A615B640D19229DAA81D2 /* SessionsViewController.swift */,
+				629A6D05CECC6099407C3A70 /* Views */,
+			);
+			path = Sessions;
+			sourceTree = "<group>";
+		};
 		629A649BA84997D177ADF279 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				629A6CDEC3F8736BB28573D6 /* Session */,
+				629A63816538C29E4419E467 /* Sessions */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -211,13 +227,30 @@
 			path = Session;
 			sourceTree = "<group>";
 		};
+		629A6D05CECC6099407C3A70 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				629A654AE79B9D6CF3C6FF0C /* SessionCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		629A6E54294EB75ABD27F429 /* Analog */ = {
 			isa = PBXGroup;
 			children = (
 				629A66A40348B0FD29A5F833 /* Logger */,
 				629A649BA84997D177ADF279 /* Presentation */,
+				629A6F7A016A35D9D1B52F6F /* Extensions */,
 			);
 			path = Analog;
+			sourceTree = "<group>";
+		};
+		629A6F7A016A35D9D1B52F6F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				629A65951C510715E3F1A9A6 /* NSAttributedString+LineBreak.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FED6CEB92189AF08007716CD /* Analog */ = {
@@ -403,6 +436,9 @@
 				629A6D7A964AF95F957EC1F5 /* SessionViewController.swift in Sources */,
 				629A6DAA68D602C3460FB4ED /* EventCollectionViewCell.swift in Sources */,
 				629A6BBF874D56CCA1E544C9 /* AttributedStringConvertible.swift in Sources */,
+				629A6AD4225F34AA20A85430 /* SessionsViewController.swift in Sources */,
+				629A6255DFCC6972278FED91 /* SessionCollectionViewCell.swift in Sources */,
+				629A681801684A85AC5E1312 /* NSAttributedString+LineBreak.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

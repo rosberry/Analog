@@ -21,7 +21,7 @@ public final class Logger {
     }()
     
     public init() {
-    
+        _ = Logger.notificationsSubscriber
     }
     
     public func log(_ event: Event) {
@@ -30,6 +30,11 @@ public final class Logger {
     
     public func currentEventsModule() -> UIViewController {
         let viewController = SessionViewController(session: currentSession)
+        return UINavigationController(rootViewController: viewController)
+    }
+    
+    public func sessionsModule() -> UIViewController {
+        let viewController = SessionsViewController(sessions: sessions)
         return UINavigationController(rootViewController: viewController)
     }
     
@@ -49,8 +54,10 @@ public final class Logger {
                     return nil
                 }
             }
+            sessions.sort(by: >)
         }
         catch {}
+        sessions.insert(currentSession, at: 0)
         return sessions
     }
     
@@ -74,6 +81,9 @@ public final class Logger {
     private static func sessionsFolderURL() throws -> URL {
         let documentsURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         let folderURL = documentsURL.appendingPathComponent("Analog/Sessions")
+        if !FileManager.default.fileExists(atPath: folderURL.path) {
+            try FileManager.default.createDirectory(at: folderURL, withIntermediateDirectories: true)
+        }
         return folderURL
     }
 }
