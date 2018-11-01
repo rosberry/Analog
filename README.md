@@ -4,8 +4,10 @@ Analog is a simple logger for any events you want. It gives you a simple session
 
 ## Requirements
 * iOS 10+
+* Swift 4.2
 
 ## Instalation
+### Carthage
 ```sh
 $ github "rosberry/Analog"
 ```
@@ -19,6 +21,8 @@ All you need to log event is just to create instance of `Logger` and call `log(E
 All events take their places in sessions. `Session` is just a container for events with `UUID`. All sessions automatically save on disk in `Documents/Analog/Sessions` on every `willResignActiveNotification`.
 
 If you want to view your events you can do it easily. Just present `logger.currentEventsModule()`. Also you have an ability to view all sessions by presenting `logger.sessionsModule()`. Also you can share a plain text of session with "Share" button in concrete session log screen.
+
+
 
 ## Authors
 
