@@ -38,11 +38,13 @@ public final class SessionViewController: UIViewController {
         
         view.backgroundColor = .white
         
+        let closeItem = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(closeButtonPressed))
+        navigationItem.rightBarButtonItem = closeItem
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(EventCollectionViewCell.self,
                                 forCellWithReuseIdentifier: Constants.eventCollectionViewCellReuseIdentifier)
-        
         view.addSubview(collectionView)
         collectionView.reloadData()
     }
@@ -51,6 +53,14 @@ public final class SessionViewController: UIViewController {
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
     }
+    
+    // MARK: - Actions
+    
+    @objc private func closeButtonPressed() {
+        dismiss(animated: true)
+    }
+    
+    // MARK: - Private
     
     private func configure(_ cell: EventCollectionViewCell, atIndex index: Int) {
         let event = session.events[index]

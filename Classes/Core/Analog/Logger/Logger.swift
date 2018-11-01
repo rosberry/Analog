@@ -29,7 +29,8 @@ public final class Logger {
     }
     
     public func currentEventsModule() -> UIViewController {
-        return SessionViewController(session: currentSession)
+        let viewController = SessionViewController(session: currentSession)
+        return UINavigationController(rootViewController: viewController)
     }
     
     // MARK: - Private
