@@ -3,7 +3,7 @@
 Analog is a simple logger for any events you want. It gives you a simple sessions mechanics and two ways to view events right in your app.
 
 ## Requirements
-* iOS 10+
+* iOS 9+
 * Swift 4.1+
 
 ## Instalation
