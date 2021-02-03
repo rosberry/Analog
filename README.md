@@ -7,9 +7,19 @@ Analog is a simple logger for any events you want. It gives you a simple session
 * Swift 4.1+
 
 ## Instalation
+### Depo
+
+[Depo](https://github.com/rosberry/depo) is a universal dependency manager that combines CocoaPods, Carthage and SPM.
+To integrate Analog into your Xcode project using Depo, specify it in your `Depofile`:
+```yaml
+carts:
+  - kind: github
+    identifier: rosberry/Analog
+```
+
 ### Carthage
 ```sh
-$ github "rosberry/Analog"
+github "rosberry/Analog"
 ```
 
 ## Usage
