@@ -21,7 +21,8 @@ extension Session: AttributedStringConvertible {
         formatter.timeStyle = .long
         
         let titleString = NSAttributedString(string: "📝 Session",
-                                             attributes: [.font: UIFont.boldSystemFont(ofSize: fontSize + 2)])
+                                             attributes: [.font: UIFont.boldSystemFont(ofSize: fontSize + 2),
+                                                          .foregroundColor: UIColor.black])
         let finalString = NSMutableAttributedString(attributedString: titleString)
         
         finalString.append(.lineBreakString(fontSize: fontSize))
