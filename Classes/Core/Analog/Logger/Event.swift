@@ -28,10 +28,12 @@ extension Event: AttributedStringConvertible {
         formatter.timeStyle = .long
         
         let dateString = NSAttributedString(string: "✏️ [\(formatter.string(from: date))]",
-                                            attributes: [.font: UIFont.systemFont(ofSize: fontSize)])
+                                            attributes: [.font: UIFont.systemFont(ofSize: fontSize),
+                                                         .foregroundColor: UIColor.black])
         let finalString = NSMutableAttributedString(attributedString: dateString)
         let titleString = NSAttributedString(string: "\(title)",
-                                             attributes: [.font: UIFont.boldSystemFont(ofSize: fontSize + 2)])
+                                             attributes: [.font: UIFont.boldSystemFont(ofSize: fontSize + 2),
+                                                          .foregroundColor: UIColor.black])
         finalString.append(.lineBreakString(fontSize: fontSize))
         finalString.append(titleString)
         
